@@ -4,13 +4,9 @@ import com.ito.ulibrary.service.UserService;
 import com.ito.ulibrary.user.dto.UserRegistryDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/register")
 public class UserRegistryController {
 
     @Autowired
@@ -20,15 +16,17 @@ public class UserRegistryController {
     public UserRegistryDTO returnNewRegistryDTO() {
         return new UserRegistryDTO();
     }
-
-    @GetMapping
+    @GetMapping("/register")
     public String showRegistryForm() {
-        return "registry";
+        return "register";
     }
-
+    @GetMapping("/login")
+    public String userlogin() {
+        return "login";
+    }
     @PostMapping
     public String registerUserAccount(@ModelAttribute("user") UserRegistryDTO userRegisterDTO) {
        userService.save(userRegisterDTO);
-       return "redirect:/registry";
+       return "redirect:/register?success";
     }
 }

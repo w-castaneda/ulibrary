@@ -20,7 +20,7 @@ public class User {
     private Long id ;
     @Column(name = "first_name")
     private String firstName;
-    @Column(name = "lasst_name")
+    @Column(name = "last_name")
     private String lastName;
     @Column(name = "email")
     private String email;
@@ -32,14 +32,14 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
-    private Collection<Rol> rol;
+    private Collection<Role> role;
 
 
-    public User(String firstName, String laststName, String email, String password, Collection rol ) {
+    public User(String firstName, String lastName, String email, String password, Collection role ) {
         this.firstName = firstName;
-        this.lastName = laststName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.rol = rol;
+        this.role = role;
     }
 }

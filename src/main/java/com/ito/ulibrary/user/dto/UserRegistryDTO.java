@@ -1,6 +1,6 @@
 package com.ito.ulibrary.user.dto;
 
-import com.ito.ulibrary.model.Rol;
+import com.ito.ulibrary.model.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,14 +19,14 @@ public class UserRegistryDTO {
     private String lastName;
     private String email;
     private String password;
-    private Collection<Rol> rol;
+    private Collection<Role> role;
 
     public UserRegistryDTO(String firstName, String laststName, String email, String password, Collection rol ) {
         this.firstName = firstName;
         this.lastName = laststName;
         this.email = email;
         this.password = password;
-        this.rol = rol;
+        this.role = rol;
     }
     public UserRegistryDTO(String email) {
         this.email = email;
